@@ -10,3 +10,105 @@
   #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
 </head>
+<body>
+
+<div id="map"></div>
+
+<script src="./index.js" type="module">
+
+import {accessToken} from "./config.js"
+
+var map;
+var markers = [];
+
+// get and add you Mapbox access token at https://account.mapbox.com/ here
+mapboxgl.accessToken = accessToken;
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-71.091542,42.358862],
+    zoom: 12
+});
+
+
+// load map
+function init(){
+    addMarkers();
+}
+
+// Add bus markers to map
+async function addMarkers(){
+    // get bus data
+    var locations = await getBusLocations();
+
+    // loop through data, add bus markers
+    locations.forEach(function(bus){
+        var marker = getMarker(bus.id);     
+        if (marker){
+            moveMarker(marker,bus);
+        }
+        else{
+            addMarker(bus);         
+        }
+    });
+
+    // timer
+    console.log(new Date());
+    setTimeout(addMarkers,15000);
+}
+
+// Request bus data from server
+async function getBusLocations(){
+    var url = '/location'; 
+    var response = await fetch(url);
+    var json     = await response.json();
+    return json;
+}
+
+function addMarker(bus){
+    var markerColor = getColor(bus);
+    var marker = new mapboxgl.Marker({ color: markerColor})
+        .setLngLat([
+            bus.longitude,            
+            bus.latitude
+        ])
+        .addTo(map);
+
+    // add id to to find marker later
+    marker.id = bus.id;
+    markers.push(marker);
+}
+
+function getColor(bus){
+    if (bus.direction > 0) {
+        return 'black';
+    }
+    return 'red';  
+}
+
+function moveMarker(marker,bus) {
+    // change color if bus has changed direction
+    var color = getColor(bus);
+    var markerElement = marker.getElement();
+    markerElement.querySelectorAll('svg g[fill="' + marker._color + '"]')[0].setAttribute("fill", color);
+    marker._color = color;
+
+    // move icon to new lat/lon
+    marker.setLngLat([
+        bus.longitude,        
+        bus.latitude
+    ]);
+}
+
+function getMarker(id){
+    var marker = markers.find(function(item){
+        return item.id === id;
+    });
+    return marker;
+}
+
+window.onload = init;
+
+</script>
+</html>
