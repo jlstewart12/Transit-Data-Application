@@ -26,7 +26,12 @@ public class MongoDB {
     {
         String connectionString = "mongodb://some-mongo:27017";
 	try {
-        // Add code here
+		MongoClient mongoClient = MongoClients.create(connectionString);
+            	MongoDatabase database = mongoClient.getDatabase("myDatabase");
+            	Document document = new Document();
+            	document.append("recordId", "CDC");
+            	document.append("value", record);          
+            	database.getCollection("myCollection").insertOne(document);
 	} catch (Exception e)
 	{
 	}
