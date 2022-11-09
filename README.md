@@ -16,7 +16,7 @@ A prototype of a web application that uses Mapbox to display the positions of bu
     ```
     docker network create MBTANetwork
     ```
-2. This python script is used to analyze calls to the MBTA API.
+2. This [script](https://github.com/jlstewart12/Transit-Data-Application/blob/main/src/MBTAapiRequest.ipynb) is used to make calls to the MBTA API.
     ```python
     mbtaURL = "https://api-v3.mbta.com/vehicles?filter[route]=1&include=trip"
 
@@ -32,7 +32,7 @@ A prototype of a web application that uses Mapbox to display the positions of bu
         
         print(json.dumps(data, indent=4, sort_keys=True))
     ```
-    * The [MBTA.sql](https://github.com/jlstewart12/Transit-Data-Application/blob/main/mysqlDocker/MBTA.sql) is used to build a table using the desired fields from the service.
+    * The [MBTA.sql](https://github.com/jlstewart12/Transit-Data-Application/blob/main/mysqlDocker/MBTA.sql) file is used to build a table using the desired fields from the service.
     * A Docker image called ```mysqlmbtamasterimg``` is built from the [Dockerfile](https://github.com/jlstewart12/Transit-Data-Application/blob/main/mysqlDocker/Dockerfile).
         ```
         docker build -t mysqlmbtamasterimg .
@@ -45,3 +45,9 @@ A prototype of a web application that uses Mapbox to display the positions of bu
     ```
     docker run -p 27017:27017 -- name some-mongo --network MBTANetwork -d mongo
     ```
+4. Flask web server
+    * [mysqldb.py](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/mysqldb.py) contains all the columns defined in the mbta_buses SQL table.
+    * [MBTAApiClient.py](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/MBTAApiClient.py) parses all columns defined in the mbta_buses SQL table.
+    * Obtain  a Mapbox access token from [here](https://account.mapbox.com/) and add it to the [index.html](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/templates/index.html) file.
+    * Run the [server.py](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/server.py) file to initialize the bus list by doing an API call to the MBTA database.
+    * Open a browser window and navigate to ```localhost:3000```.
