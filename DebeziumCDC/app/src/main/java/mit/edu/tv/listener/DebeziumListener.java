@@ -40,7 +40,7 @@ public class DebeziumListener {
         mongoDB.testConnection();
         // Use the insertRecord method to insert a record inside the MongoDB database.
         // Pass sourceRecord.value().toString()
-        
+        mongoDB.insertRecord(sourceRecord.value().toString());
 
         System.out.println("Key = '" + sourceRecord.key() + "' value = '" + sourceRecord.value() + "'");
     }
