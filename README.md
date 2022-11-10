@@ -51,3 +51,16 @@ A prototype of a web application that uses Mapbox to display the positions of bu
     * Obtain  a Mapbox access token from [here](https://account.mapbox.com/) and add it to the [index.html](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/templates/index.html) file.
     * Run the [server.py](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/server.py) file to initialize the bus list by doing an API call to the MBTA database.
     * Open a browser window and navigate to ```localhost:3000```.
+5. Debezium CDC monitor container:
+    * A Docker image called ```debeziummodule16``` is generated from the [Dockerfile](https://github.com/jlstewart12/Transit-Data-Application/blob/main/DebeziumCDC/Dockerfile) located within the DebeziumCDC folder.
+        ```
+        docker build -t debeziummodule16 .
+        ```
+    * A Debezium container associated with the ```MBTANetwork``` is created.
+        ```
+        docker run --it --rm --name debeziumserver --network MBTANetwork debeziummodule16 bash
+        ```
+    * From the Debezium shell prompt, run the Maven SpringBoot application using the following command:
+        ```
+        mvn spring-boot:run
+        ```
