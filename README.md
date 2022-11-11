@@ -16,7 +16,7 @@ This project shows the prototyping of a web application that uses Mapbox to disp
     ```
     docker network create MBTANetwork
     ```
-2. Within the [MBTAapiRequest](https://github.com/jlstewart12/Transit-Data-Application/blob/main/src/MBTAapiRequest.ipynb) jupyter notebook, the urllib package is used to make calls to the MBTA API.
+2. Within the [MBTAapiRequest](https://github.com/jlstewart12/Transit-Data-Application/blob/main/src/MBTAapiRequest.ipynb) jupyter notebook, the ```urllib``` package is used to make calls to the MBTA API.
     ```python
     mbtaURL = "https://api-v3.mbta.com/vehicles?filter[route]=1&include=trip"
 
@@ -48,7 +48,7 @@ This project shows the prototyping of a web application that uses Mapbox to disp
 4. Flask web server:
     * [mysqldb.py](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/mysqldb.py) takes values associated with specified fields and inserts them into the ```mbta_buses``` MySQL table.
     * [MBTAApiClient.py](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/MBTAApiClient.py) parses the columns defined in the mbta_buses SQL table.
-    * The ```mapboxgl.accessToken``` variable located within the [index.html](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/templates/index.html) file is set to a Mapbox access token obtained after registering for one[here](https://account.mapbox.com/).
+    * The ```mapboxgl.accessToken``` variable located within the [index.html](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/templates/index.html) file is set to a Mapbox access token obtained after registering for one [here](https://account.mapbox.com/).
     * [server.py](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/server.py) is run to initialize the bus list by making an API call to the MBTA database.
     * Once the server is running, opening a browser window and navigating to ```localhost:3000``` will generate a map showing bus markers.
     ![](https://github.com/jlstewart12/Transit-Data-Application/blob/main/src/images/busMap.png)
@@ -75,7 +75,7 @@ This project shows the prototyping of a web application that uses Mapbox to disp
         ```
         docker cp java-quick-start javamaven:/
         ```
-    * Install a ```nano``` text editor in the ```java-quick-start``` folder with the these commands.
+    * Install a ```nano``` text editor in the ```java-quick-start``` folder by executing these commands.
         ```
         apt-get update
         ```
