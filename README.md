@@ -1,4 +1,4 @@
-# Transit-Data-Application
+# Transit Data Application
 This project shows the prototyping of a web application that uses Mapbox to display bus positions along Route 1 for the MBTA.
 
 ## Tools
@@ -114,7 +114,7 @@ This project shows the prototyping of a web application that uses Mapbox to disp
             }
         }
         ```
-        
+
         </p>
         </details>
     * When following the Maven project tutorial, set ```mongodb.uri``` to the port associated with the MySQL container.
