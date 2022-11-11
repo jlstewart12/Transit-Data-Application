@@ -1,5 +1,5 @@
 # Transit-Data-Application
-This project demonstrates the prototyping of a web application that uses Mapbox to display bus positions along Route 1 for the MBTA.
+This project shows the prototyping of a web application that uses Mapbox to display bus positions along Route 1 for the MBTA.
 
 ## Tools
 * Docker
@@ -112,4 +112,5 @@ This project demonstrates the prototyping of a web application that uses Mapbox 
         }
         ```
     * When following the Maven project tutorial, set ```mongodb.uri``` to the port associated with the MySQL container.
-7. After running the application for several hours, the API data is analyzed within the [MBTAtransitAPI](https://github.com/jlstewart12/Transit-Data-Application/blob/main/src/MBTAtransitAPI.ipynb) notebook.
+## Data Analysis
+After running the application for several hours, the API data is analyzed within the [MBTAtransitAPI](https://github.com/jlstewart12/Transit-Data-Application/blob/main/src/MBTAtransitAPI.ipynb) notebook.
