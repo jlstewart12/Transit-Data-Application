@@ -11,7 +11,7 @@ This project shows the prototyping of a web application that uses Mapbox to disp
 * Maven SpringBoot
 
 ## Installation
-1. All Docker containers are associated with a network called ```MBTANetwork```. Create the network by running the following command in the terminal.
+1. All Docker containers are associated with a network named ```MBTANetwork```. Create the network by running the following command in the terminal.
     ```
     docker network create MBTANetwork
     ```
