@@ -82,7 +82,6 @@ This project shows the prototyping of a web application that uses Mapbox to disp
         apt-get install nano
         ```
     * Create a file called ```ReadCDC.java``` within the ```/java-quick-start/src/main/java/com/mongodb/quickstart``` directory that contains the following code:
-        ReadCDC.java
 
         ```java
         package com.mongodb.quickstart;
@@ -116,4 +115,5 @@ This project shows the prototyping of a web application that uses Mapbox to disp
         
     * When following the Maven project tutorial, set ```mongodb.uri``` to the port associated with the MySQL container.
 ## Data Analysis
-After running the application for several hours, the API data is analyzed within the [MBTAtransitAPI](/src/MBTAtransitAPI.ipynb) notebook.
+After running the application for several hours, the API data is analyzed within the <a href="https://github.com/jlstewart12/Transit-Data-Application/blob/main/src/MBTAtransitAPI.ipynb" target="_top">MBTAtransitAPI</a> notebook.
+
