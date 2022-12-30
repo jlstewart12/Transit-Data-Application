@@ -50,7 +50,7 @@ This project shows the prototyping of a web application that uses Mapbox to disp
     * The ```mapboxgl.accessToken``` variable located within the [index.html](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/templates/index.html) file is set to a Mapbox access token obtained after registering for one [here](https://account.mapbox.com/).
     * [server.py](https://github.com/jlstewart12/Transit-Data-Application/blob/main/ProjectFlask/server.py) is run to initialize the bus list by making an API call to the MBTA database.
     * Once the server is running, opening a browser window and navigating to ```localhost:3000``` will generate a map showing bus markers.
-    ![](https://github.com/jlstewart12/Transit-Data-Application/blob/main/src/images/busMap.png)
+    ![](/src/images/busMap.png)
 5. Debezium CDC monitor container:
     * A Docker image called ```debeziummodule16``` is generated from the [Dockerfile](https://github.com/jlstewart12/Transit-Data-Application/blob/main/DebeziumCDC/Dockerfile) located within the DebeziumCDC folder.
         ```
@@ -82,8 +82,7 @@ This project shows the prototyping of a web application that uses Mapbox to disp
         apt-get install nano
         ```
     * Create a file called ```ReadCDC.java``` within the ```/java-quick-start/src/main/java/com/mongodb/quickstart``` directory that contains the following code:
-        <details><summary>ReadCDC.java</summary>
-        <p>
+        ReadCDC.java
 
         ```java
         package com.mongodb.quickstart;
@@ -114,8 +113,7 @@ This project shows the prototyping of a web application that uses Mapbox to disp
         }
         ```
 
-        </p>
-        </details>
+        
     * When following the Maven project tutorial, set ```mongodb.uri``` to the port associated with the MySQL container.
 ## Data Analysis
-After running the application for several hours, the API data is analyzed within the [MBTAtransitAPI](https://github.com/jlstewart12/Transit-Data-Application/blob/main/src/MBTAtransitAPI.ipynb) notebook.
+After running the application for several hours, the API data is analyzed within the [MBTAtransitAPI](/src/MBTAtransitAPI.ipynb) notebook.
